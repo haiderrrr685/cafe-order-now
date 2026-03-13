@@ -39,7 +39,6 @@ const CartDrawer = ({ open, onClose }: CartDrawerProps) => {
     <div className="fixed inset-0 z-50">
       <div className="absolute inset-0 bg-foreground/40 backdrop-blur-sm" onClick={onClose} />
       <div className="absolute bottom-0 left-0 right-0 bg-background rounded-t-2xl max-h-[90vh] flex flex-col animate-slide-up">
-        {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-border">
           <h2 className="font-display text-xl font-bold text-foreground">Your Order</h2>
           <button onClick={onClose} className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
@@ -47,17 +46,20 @@ const CartDrawer = ({ open, onClose }: CartDrawerProps) => {
           </button>
         </div>
 
-        {/* Items */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
           {items.length === 0 ? (
             <p className="text-muted-foreground text-center py-8">Your cart is empty</p>
           ) : (
             items.map((item) => (
               <div key={item.id} className="flex items-center gap-3 bg-card rounded-lg p-3 border border-border/50">
-                <img src={item.image} alt={item.name} className="w-14 h-14 object-contain rounded-md bg-muted p-1" />
+                {item.image ? (
+                  <img src={item.image} alt={item.name} className="w-14 h-14 object-contain rounded-md bg-muted p-1" />
+                ) : (
+                  <div className="w-10 h-10 rounded-md bg-accent flex items-center justify-center text-lg">🍽️</div>
+                )}
                 <div className="flex-1 min-w-0">
                   <h4 className="font-body font-semibold text-sm text-foreground truncate">{item.name}</h4>
-                  <p className="text-sm font-bold text-primary">${(item.price * item.quantity).toFixed(2)}</p>
+                  <p className="text-sm font-bold text-primary">₹{item.price * item.quantity}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -79,7 +81,6 @@ const CartDrawer = ({ open, onClose }: CartDrawerProps) => {
           )}
         </div>
 
-        {/* Table Number & Checkout */}
         {items.length > 0 && (
           <div className="p-4 border-t border-border space-y-4">
             <div>
@@ -96,7 +97,7 @@ const CartDrawer = ({ open, onClose }: CartDrawerProps) => {
             </div>
             <div className="flex justify-between items-center text-foreground font-body">
               <span className="text-base font-medium">Total</span>
-              <span className="text-xl font-bold">${totalPrice.toFixed(2)}</span>
+              <span className="text-xl font-bold">₹{totalPrice}</span>
             </div>
             <button
               onClick={handleSendOrder}
