@@ -27,26 +27,30 @@ const MenuItemCard = ({ item }: MenuItemCardProps) => {
 
   return (
     <div className="flex gap-3 bg-card rounded-lg p-3 shadow-sm border border-border/50">
-      <div className="w-20 h-20 flex-shrink-0 rounded-md overflow-hidden bg-muted flex items-center justify-center">
-        <img
-          src={item.image}
-          alt={item.name}
-          className="w-full h-full object-contain p-1"
-          loading="lazy"
-        />
-      </div>
+      {item.image && (
+        <div className="w-20 h-20 flex-shrink-0 rounded-md overflow-hidden bg-muted flex items-center justify-center">
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full h-full object-contain p-1"
+            loading="lazy"
+          />
+        </div>
+      )}
       <div className="flex-1 min-w-0 flex flex-col justify-between">
         <div>
           <h3 className="font-display font-semibold text-sm text-foreground leading-tight">
             {item.name}
           </h3>
-          <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
-            {item.description}
-          </p>
+          {item.description && (
+            <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
+              {item.description}
+            </p>
+          )}
         </div>
         <div className="flex items-center justify-between mt-1">
           <span className="font-body font-bold text-sm text-foreground">
-            ${item.price.toFixed(2)}
+            ₹{item.price}
           </span>
           {quantity === 0 ? (
             <button

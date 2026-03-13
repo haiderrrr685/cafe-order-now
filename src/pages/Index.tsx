@@ -17,27 +17,23 @@ const MenuPage = () => {
       {/* Header */}
       <div className="px-4 pt-6 pb-3 text-center">
         <h1 className="font-display text-2xl font-bold text-foreground tracking-tight">
-          Crumbles Café
+          Boston Café & Bakery
         </h1>
         <p className="text-sm text-muted-foreground mt-1 font-body">
-          Freshly baked · Made with love 🤎
+          Scan · Order · Enjoy 🤎
         </p>
       </div>
 
-      {/* Category Tabs */}
       <CategoryTabs active={activeCategory} onSelect={setActiveCategory} />
 
-      {/* Menu Items */}
       <div className="px-4 py-4 space-y-3 pb-28">
+        <h2 className="font-display text-lg font-semibold text-foreground">{activeCategory}</h2>
         {filteredItems.map((item) => (
           <MenuItemCard key={item.id} item={item} />
         ))}
       </div>
 
-      {/* Cart Bar */}
       <CartBar onOpen={() => setCartOpen(true)} />
-
-      {/* Cart Drawer */}
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </div>
   );

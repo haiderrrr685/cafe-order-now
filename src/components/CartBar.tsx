@@ -23,7 +23,7 @@ const CartBar = ({ onOpen }: CartBarProps) => {
             {totalItems}
           </span>
         </div>
-        <span>${totalPrice.toFixed(2)}</span>
+        <span>₹{totalPrice}</span>
       </button>
     </div>
   );
