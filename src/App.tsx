@@ -19,7 +19,7 @@ const App = () => (
                                       <Route path="/" element={<Index />} />
                                       <Route path="/kitchen" element={<Kitchen />} />
                                       <Route path="*" element={<NotFound />} />
-                            </Routes>Routes>
+                            </RoutesRou>
                     </BrowserRouter>BrowserRouter>
               </TooltipProvider>TooltipProvider>
       </QueryClientProvider>QueryClientProvider>
