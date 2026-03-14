@@ -10,20 +10,19 @@ import Kitchen from "./pages/Kitchen.tsx";
 const queryClient = new QueryClient();
 
 const App = () => (
-    <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-                <Toaster />
-                <Sonner />
-                <BrowserRouter>
-                        <Routes>
-                                  <Route path="/" element={<Index />} />
-                                  <Route path="/kitchen" element={<Kitchen />} />
-                                  <Route path="*" element={<NotFound />} />
-                        </Routes>Routes>
-                </BrowserRouter>BrowserRouter>
-          </TooltipProvider>TooltipProvider>
-    </QueryClientProvider>QueryClientProvider>
-  );
+      <QueryClientProvider client={queryClient}>
+              <TooltipProvider>
+                    <Toaster />
+                    <Sonner />
+                    <BrowserRouter>
+                            <Routes>
+                                      <Route path="/" element={<Index />} />
+                                      <Route path="/kitchen" element={<Kitchen />} />
+                                      <Route path="*" element={<NotFound />} />
+                            </Routes>Routes>
+                    </BrowserRouter>BrowserRouter>
+              </TooltipProvider>TooltipProvider>
+      </QueryClientProvider>QueryClientProvider>
+    );
 
-export default App;
-</TooltipProvider>
+export default App</TooltipProvider>
